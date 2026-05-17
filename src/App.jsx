@@ -1,7 +1,22 @@
-// src/App.jsx
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar'
+import MailboxForm from './pages/MailboxForm/MailboxForm'
+import MailboxList from './pages/MailboxList/MailboxList'
+import MailboxDetails from './pages/MailboxDetails/MailboxDetails'
 
 const App = () => {
-  return <h1>Hello world!</h1>;
-};
+  return (
+    <>
+      <NavBar />
 
-export default App;
+      <Routes>
+        <Route path="/" element={<main><h1>Post Office</h1></main>} />
+        <Route path="/mailboxes" element={<MailboxList />} />
+        <Route path="/new-mailbox" element={<MailboxForm />} />
+        <Route path="/mailboxes/:mailboxId" element={<MailboxDetails />} />
+      </Routes>
+    </>
+  )
+}
+
+export default App
